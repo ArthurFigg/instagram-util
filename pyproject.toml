@@ -1,0 +1,24 @@
+[project]
+name = "instagram-util"
+version = "0.1.0"
+description = "Bot do Telegram que lê um reel do Instagram, acha o repositório citado e entrega ficha de fatos, arquivo .md para IA e nota no Obsidian."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic-settings>=2.16.0",
+    "requests>=2.34.2",
+    "yt-dlp>=2026.8.19",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.414",
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ['.']
+
+[tool.ruff]
+line-length = 88
