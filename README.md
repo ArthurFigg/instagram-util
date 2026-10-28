@@ -113,14 +113,15 @@ Crie uma pasta dentro do seu vault para os repositórios e coloque o caminho com
 OBSIDIAN_PASTA_REPOSITORIOS=C:\Users\voce\Documents\MeuVault\Repositorios
 ```
 
-Cada projeto achado vira uma nota nessa pasta. As duas opções abaixo são extras, para quem já usa uma nota-índice:
+Cada projeto achado vira uma nota nessa pasta. As opções abaixo são extras, para quem já usa uma nota-índice ou quer separar o que já olhou do que não olhou:
 
 ```
 OBSIDIAN_ARQUIVO_INDICE=Indice.md
 OBSIDIAN_LINKS_RODAPE=["Indice"]
+OBSIDIAN_STATUS_INICIAL=novo
 ```
 
-O primeiro faz o bot acrescentar `- [[nota]]` ao `Indice.md` (que precisa existir na mesma pasta). O segundo coloca um rodapé "Ver também" com esses links em cada nota.
+O primeiro faz o bot acrescentar `- [[nota]]` ao `Indice.md` (que precisa existir na mesma pasta). O segundo coloca um rodapé "Ver também" com esses links em cada nota. O terceiro grava `status: novo` no cabeçalho de cada nota nova, para você filtrar depois o que ainda não olhou.
 
 ### Passo 10 (opcional): ligar sozinho com o Windows
 
@@ -168,6 +169,7 @@ As variáveis ficam no arquivo `.env` (modelo em `.env.example`). Campo vazio va
 | `OBSIDIAN_PASTA_REPOSITORIOS` | Não | Pasta onde criar uma nota por repositório. Vazio = não grava nota. |
 | `OBSIDIAN_ARQUIVO_INDICE` | Não | Nota-índice (ex.: `Indice.md`, na mesma pasta) que ganha uma linha `- [[nota]]` por nota nova. |
 | `OBSIDIAN_LINKS_RODAPE` | Não | Notas linkadas no rodapé "Ver também", em JSON. Ex.: `["Indice","Repositorios"]`. |
+| `OBSIDIAN_STATUS_INICIAL` | Não | Valor da propriedade `status` em toda nota nova. Ex.: `novo`. Vazio = a nota não tem `status`. |
 
 ## Estrutura do projeto
 

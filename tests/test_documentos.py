@@ -110,6 +110,18 @@ def test_nota_sem_links_de_rodape_nao_tem_ver_tambem(tmp_path):
     assert caminho is not None and "Ver também" not in caminho.read_text("utf-8")
 
 
+def test_nota_com_status_inicial_grava_o_status_no_cabecalho(tmp_path):
+    opcoes = OpcoesNota(status_inicial="novo")
+    caminho = gravar_nota(tmp_path, _ficha(), _LINK_REEL, _HOJE, opcoes)
+    assert caminho is not None
+    assert "\nstatus: novo\n---\n" in caminho.read_text("utf-8")
+
+
+def test_nota_sem_status_inicial_nao_tem_status(tmp_path):
+    caminho = gravar_nota(tmp_path, _ficha(), _LINK_REEL, _HOJE)
+    assert caminho is not None and "status:" not in caminho.read_text("utf-8")
+
+
 def test_nota_com_links_de_rodape_lista_todos(tmp_path):
     opcoes = OpcoesNota(links_rodape=("Índice", "Repositórios"))
     caminho = gravar_nota(tmp_path, _ficha(), _LINK_REEL, _HOJE, opcoes)

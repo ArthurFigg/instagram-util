@@ -67,6 +67,7 @@ def processar_projeto(
     opcoes = OpcoesNota(
         arquivo_indice=configuracoes.obsidian_arquivo_indice,
         links_rodape=tuple(configuracoes.obsidian_links_rodape),
+        status_inicial=configuracoes.obsidian_status_inicial,
     )
     nota = gravar_nota(pasta, ficha, link_reel, hoje, opcoes)
     aviso = "Nota criada" if nota else "Já existia nota"

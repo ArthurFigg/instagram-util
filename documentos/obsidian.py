@@ -20,13 +20,18 @@ class OpcoesNota:
     arquivo_indice: str | None = None
     # Notas linkadas no rodapé "Ver também" (ex.: ("Índice", "Repositórios")).
     links_rodape: tuple[str, ...] = ()
+    # Valor da propriedade "status" em toda nota nova (ex.: "novo"); None = sem ela.
+    status_inicial: str | None = None
 
 
 def _montar_nota(
     ficha: FichaProjeto, link_reel: str, hoje: date, opcoes: OpcoesNota
 ) -> str:
     tags = ["repositorio", *ficha.topicos[:_MAXIMO_TAGS]]
-    linhas = ["---", "tags:", *[f"  - {tag}" for tag in tags], "---", ""]
+    linhas = ["---", "tags:", *[f"  - {tag}" for tag in tags]]
+    if opcoes.status_inicial:
+        linhas.append(f"status: {opcoes.status_inicial}")
+    linhas += ["---", ""]
     descricao = linhas_de_descricao(ficha)
     if descricao:
         linhas += [*descricao, ""]

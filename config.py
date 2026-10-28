@@ -21,3 +21,5 @@ class Configuracoes(BaseSettings):
     obsidian_arquivo_indice: str | None = None
     # Opcional: notas linkadas no rodapé, em JSON (ex.: ["Índice","Repositórios"]).
     obsidian_links_rodape: list[str] = []
+    # Opcional: propriedade "status" gravada em toda nota nova (ex.: "novo").
+    obsidian_status_inicial: str | None = None
